@@ -3,7 +3,6 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 
-# 오른쪽으로 스윙턴 하는 함수
 def rightSwingTurn(speed, running_time):
     leftMotor("forward")
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
@@ -14,8 +13,6 @@ def rightSwingTurn(speed, running_time):
 
     sleep(running_time)
 
-
-# 왼쪽으로 스윙턴 하는 함수
 def leftSwingTurn(speed, running_time):
     rightMotor("forward")
     GPIO.output(MotorLeft_PWM, GPIO.LOW)
@@ -27,7 +24,6 @@ def leftSwingTurn(speed, running_time):
     sleep(running_time)
 
 
-# 오른쪽으로 포인트턴 하는 함수
 def rightPointTurn(speed, running_time):
     leftMotor("forward")
     rightMotor("backward")
@@ -40,7 +36,6 @@ def rightPointTurn(speed, running_time):
     sleep(running_time)
 
 
-# 왼쪽으로 포인트턴 하는 함수
 def leftPointTurn(speed, running_time):
     leftMotor("backward")
     rightMotor("forward")
