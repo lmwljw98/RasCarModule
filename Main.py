@@ -9,7 +9,7 @@ def A3_firstStep():
     while True:
         try:
             distance = getDistance()
-            if distance > 20:
+            if distance > 30:
                 goForwardAny(40)
             else:
                 stopCar()
@@ -28,7 +28,7 @@ def A3_secondStep():
     while True:
         try:
             distance = getDistance()
-            if distance > 20:
+            if distance > 30:
                 goForwardAny(40)
             else:
                 stopCar()
@@ -47,7 +47,7 @@ def A3_thirdStep():
     while True:
         try:
             distance = getDistance()
-            if distance > 20:
+            if distance > 30:
                 goForwardAny(40)
             else:
                 stopCar()
@@ -66,7 +66,7 @@ def A3_fourthStep():
     while True:
         try:
             distance = getDistance()
-            if distance > 20:
+            if distance > 30:
                 goForwardAny(40)
             else:
                 stopCar()
