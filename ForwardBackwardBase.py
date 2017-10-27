@@ -81,7 +81,6 @@ def goBackward(speed, running_time):
     sleep(running_time)
 
 
-# 지정한 속도로 계속 전진할 수 있도록 하는 함수
 def goForwardAny(speed):
     # set the left motor to go forward
     leftMotor("forward")
