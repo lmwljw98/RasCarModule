@@ -10,6 +10,19 @@ MotorRight_A = 15
 MotorRight_B = 13
 MotorRight_PWM = 38
 
+GPIO.setwarnings(False)
+
+GPIO.setup(MotorLeft_A, GPIO.OUT)
+GPIO.setup(MotorLeft_B, GPIO.OUT)
+GPIO.setup(MotorLeft_PWM, GPIO.OUT)
+
+GPIO.setup(MotorRight_A, GPIO.OUT)
+GPIO.setup(MotorRight_B, GPIO.OUT)
+GPIO.setup(MotorRight_PWM, GPIO.OUT)
+
+LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
+RightPwm = GPIO.PWM(MotorRight_PWM, 100)
+
 
 def baseSetup():
     # set GPIO warnings as false
@@ -22,9 +35,6 @@ def baseSetup():
     GPIO.setup(MotorRight_A, GPIO.OUT)
     GPIO.setup(MotorRight_B, GPIO.OUT)
     GPIO.setup(MotorRight_PWM, GPIO.OUT)
-
-    global LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
-    global RightPwm = GPIO.PWM(MotorRight_PWM, 100)
 
 
 def leftMotor(x):
@@ -127,6 +137,7 @@ if __name__ == "__main__":
     # set up GPIO mode as BOARD
     GPIO.setmode(GPIO.BOARD)
     baseSetup()
+
     try:
         # setup and initialize the left motor and right motor
         LeftPwm.start(0)

@@ -13,6 +13,7 @@ def rightSwingTurn(speed, running_time):
 
     sleep(running_time)
 
+
 def leftSwingTurn(speed, running_time):
     rightMotor("forward")
     GPIO.output(MotorLeft_PWM, GPIO.LOW)
@@ -59,7 +60,7 @@ if __name__ == "__main__":
 
         rightSwingTurn(60, 2)
         goForward(30, 2)
-        LeftSwingTurn(60, 2)
+        leftSwingTurn(60, 2)
         goBackward(30, 2)
 
         rightPointTurn(60, 2)
