@@ -52,20 +52,21 @@ if __name__ == "__main__":
     # set up GPIO mode as BOARD
     GPIO.setmode(GPIO.BOARD)
     baseSetup()
-    LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
-    RightPwm = GPIO.PWM(MotorRight_PWM, 100)
+    LeftPwm = leftPWM()
+    RightPwm = rightPWM()
+
     try:
         LeftPwm.start(0)
         RightPwm.start(0)
 
-        rightSwingTurn(30, 2)
+        rightSwingTurn(60, 2)
         goForward(30, 2)
-        LeftSwingTurn(30, 2)
+        LeftSwingTurn(60, 2)
         goBackward(30, 2)
 
-        rightPointTurn(30, 2)
+        rightPointTurn(60, 2)
         goForward(30, 2)
-        leftPointTurn(30 ,2)
+        leftPointTurn(60, 2)
         goBackward(30, 2)
 
     except KeyboardInterrupt:

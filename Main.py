@@ -80,8 +80,8 @@ def A3_fourthStep():
 # set up GPIO mode as BOARD
 GPIO.setmode(GPIO.BOARD)
 baseSetup()
-LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
-RightPwm = GPIO.PWM(MotorRight_PWM, 100)
+LeftPwm = leftPWM()
+RightPwm = rightPWM()
 
 LeftPwm.start(0)
 RightPwm.start(0)
