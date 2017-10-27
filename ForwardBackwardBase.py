@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
+GPIO.setmode(GPIO.BOARD)
 # Global Variables
 MotorLeft_A = 12
 MotorLeft_B = 11
@@ -16,7 +17,7 @@ RightPwm = GPIO.PWM(MotorRight_PWM, 100)
 
 def baseSetup():
     # set up GPIO mode as BOARD
-    GPIO.setmode(GPIO.BOARD)
+
 
     # set GPIO warnings as false
     GPIO.setwarnings(False)
