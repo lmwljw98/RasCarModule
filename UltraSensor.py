@@ -2,7 +2,6 @@ import RPi.GPIO as GPIO
 import time
 
 
-# 앞에 있는 장애물과 구동체 사이의 거리를 리턴하는 함수
 def getDistance():
     GPIO.setmode(GPIO.BOARD)
 
