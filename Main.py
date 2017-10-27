@@ -10,7 +10,7 @@ def A3_firstStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(50)
+                goForwardAny(25)
             else:
                 stopCar()
                 sleep(1)
@@ -29,7 +29,7 @@ def A3_secondStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(50)
+                goForwardAny(25)
             else:
                 stopCar()
                 sleep(1)
@@ -48,7 +48,7 @@ def A3_thirdStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(50)
+                goForwardAny(25)
             else:
                 stopCar()
                 sleep(1)
@@ -67,7 +67,7 @@ def A3_fourthStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(50)
+                goForwardAny(25)
             else:
                 stopCar()
                 sleep(1)
@@ -80,18 +80,21 @@ def A3_fourthStep():
             stopCar()
             GPIO.cleanup()
 
+try:
+    # set up GPIO mode as BOARD
+    GPIO.setmode(GPIO.BOARD)
+    baseSetup()
+    LeftPwm.start(0)
+    RightPwm.start(0)
 
-# set up GPIO mode as BOARD
-GPIO.setmode(GPIO.BOARD)
-baseSetup()
-LeftPwm.start(0)
-RightPwm.start(0)
+    A3_firstStep()
+    A3_secondStep()
+    goForward(25, 3)
 
-A3_firstStep()
-A3_secondStep()
-goForward(50, 3)
-
-input()
-A3_thirdStep()
-A3_fourthStep()
-goForward(50, 3)
+    input()
+    A3_thirdStep()
+    A3_fourthStep()
+    goForward(25, 3)
+except KeyboardInterrupt:
+    stopCar()
+    GPIO.cleanup()
