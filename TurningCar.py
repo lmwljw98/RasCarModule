@@ -58,15 +58,15 @@ if __name__ == "__main__":
         LeftPwm.start(0)
         RightPwm.start(0)
 
-        rightSwingTurn(60, 2)
+        rightSwingTurn(45, 2)
         goForward(30, 2)
-        leftSwingTurn(60, 2)
-        goBackward(30, 2)
+        leftSwingTurn(45, 2)
+        #goBackward(30, 2)
 
-        rightPointTurn(60, 2)
+        rightPointTurn(45, 2)
         goForward(30, 2)
-        leftPointTurn(60, 2)
-        goBackward(30, 2)
+        leftPointTurn(45, 2)
+        #goBackward(30, 2)
 
     except KeyboardInterrupt:
         stopCar()
