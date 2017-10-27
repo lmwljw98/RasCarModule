@@ -52,8 +52,6 @@ if __name__ == "__main__":
     # set up GPIO mode as BOARD
     GPIO.setmode(GPIO.BOARD)
     baseSetup()
-    LeftPwm = leftPWM()
-    RightPwm = rightPWM()
 
     try:
         LeftPwm.start(0)
