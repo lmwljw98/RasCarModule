@@ -30,20 +30,20 @@ def baseSetup():
 
 def leftMotor(x):
     if x == 'forward':
-        GPIO.output(MotorLeft_A, GPIO.HIGH)
-        GPIO.output(MotorLeft_B, GPIO.LOW)
-    elif x == 'backward':
         GPIO.output(MotorLeft_A, GPIO.LOW)
         GPIO.output(MotorLeft_B, GPIO.HIGH)
 
+    elif x == 'backward':
+        GPIO.output(MotorLeft_A, GPIO.HIGH)
+        GPIO.output(MotorLeft_B, GPIO.LOW)
 
 def rightMotor(x):
     if x == 'forward':
-        GPIO.output(MotorRight_A, GPIO.LOW)
-        GPIO.output(MotorRight_B, GPIO.HIGH)
-    elif x == 'backward':
         GPIO.output(MotorRight_A, GPIO.HIGH)
         GPIO.output(MotorRight_B, GPIO.LOW)
+    elif x == 'backward':
+        GPIO.output(MotorRight_A, GPIO.LOW)
+        GPIO.output(MotorRight_B, GPIO.HIGH)
 
 
 def goForward(speed, running_time):
