@@ -10,11 +10,11 @@ def A3_firstStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(25)
+                goForwardAny(40)
             else:
                 stopCar()
                 sleep(1)
-                rightSwingTurn(50, 2)
+                rightSwingTurn(25, 2)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -29,11 +29,11 @@ def A3_secondStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(25)
+                goForwardAny(40)
             else:
                 stopCar()
                 sleep(1)
-                rightPointTurn(50, 2)
+                rightPointTurn(25, 2)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -48,11 +48,11 @@ def A3_thirdStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(25)
+                goForwardAny(40)
             else:
                 stopCar()
                 sleep(1)
-                leftPointTurn(50, 2)
+                leftPointTurn(25, 2)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -67,11 +67,11 @@ def A3_fourthStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(25)
+                goForwardAny(40)
             else:
                 stopCar()
                 sleep(1)
-                leftSwingTurn(50, 2)
+                leftSwingTurn(25, 2)
                 break
 
         # when the Ctrl+C key has been pressed,
