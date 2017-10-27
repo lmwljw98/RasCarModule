@@ -5,11 +5,11 @@ GPIO.setmode(GPIO.BOARD)
 # Global Variables
 MotorLeft_A = 12
 MotorLeft_B = 11
-MotorLeft_PWM = 35
+MotorLeft_PWM = 36
 
 MotorRight_A = 15
 MotorRight_B = 13
-MotorRight_PWM = 37
+MotorRight_PWM = 38
 
 
 def baseSetup():
@@ -32,7 +32,6 @@ def leftMotor(x):
     if x == 'forward':
         GPIO.output(MotorLeft_A, GPIO.LOW)
         GPIO.output(MotorLeft_B, GPIO.HIGH)
-
     elif x == 'backward':
         GPIO.output(MotorLeft_A, GPIO.HIGH)
         GPIO.output(MotorLeft_B, GPIO.LOW)
