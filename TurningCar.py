@@ -54,7 +54,11 @@ def leftPointTurn(speed, running_time):
 
 
 if __name__ == "__main__":
+    # set up GPIO mode as BOARD
+    GPIO.setmode(GPIO.BOARD)
     baseSetup()
+    LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
+    RightPwm = GPIO.PWM(MotorRight_PWM, 100)
     try:
         LeftPwm.start(0)
         RightPwm.start(0)

@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-GPIO.setmode(GPIO.BOARD)
 # Global Variables
 MotorLeft_A = 12
 MotorLeft_B = 11
@@ -13,8 +12,6 @@ MotorRight_PWM = 38
 
 
 def baseSetup():
-    # set up GPIO mode as BOARD
-
 
     # set GPIO warnings as false
     GPIO.setwarnings(False)
@@ -124,8 +121,9 @@ def stopCar():
 
 # mission has been started as below
 if __name__ == "__main__":
+    # set up GPIO mode as BOARD
+    GPIO.setmode(GPIO.BOARD)
     baseSetup()
-
     LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
     RightPwm = GPIO.PWM(MotorRight_PWM, 100)
 
