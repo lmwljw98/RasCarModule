@@ -91,7 +91,6 @@ try:
     A3_secondStep()
     goForward(25, 3)
 
-    input()
     A3_thirdStep()
     A3_fourthStep()
     goForward(25, 3)
