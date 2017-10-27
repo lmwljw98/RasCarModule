@@ -89,11 +89,11 @@ try:
 
     A3_firstStep()
     A3_secondStep()
-    goForward(40, 2)
+    goForward(40, 1)
     raw_input()
     A3_thirdStep()
     A3_fourthStep()
-    goForward(40, 2)
+    goForward(40, 1)
 except KeyboardInterrupt:
     stopCar()
     GPIO.cleanup()
