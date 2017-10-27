@@ -68,7 +68,7 @@ def goForward(speed, running_time):
     # set the speed of the left motor to go forward
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(speed * 1.1)
+    RightPwm.ChangeDutyCycle(speed * 1.05)
     # set the running time of the left motor to go forward
     sleep(running_time)
 
@@ -84,7 +84,7 @@ def goBackward(speed, running_time):
     # set the speed of the left motor to go forward
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(speed * 1.1)
+    RightPwm.ChangeDutyCycle(speed * 1.05)
     # set the running time of the left motor to go forward
     sleep(running_time)
 
@@ -101,7 +101,7 @@ def goForwardAny(speed):
     # set the speed of the left motor to go forward
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(speed * 1.1)
+    RightPwm.ChangeDutyCycle(speed * 1.05)
     # set the running time of the left motor to go forward
 
 
@@ -116,7 +116,7 @@ def goBackwardAny(speed):
     # set the speed of the left motor to go forward
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(speed * 1.1)
+    RightPwm.ChangeDutyCycle(speed * 1.05)
     # set the running time of the left motor to go forward
 
 
