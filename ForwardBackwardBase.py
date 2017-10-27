@@ -10,6 +10,7 @@ MotorRight_A = 15
 MotorRight_B = 13
 MotorRight_PWM = 38
 
+GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 GPIO.setup(MotorLeft_A, GPIO.OUT)
@@ -135,7 +136,7 @@ def stopCar():
 # mission has been started as below
 if __name__ == "__main__":
     # set up GPIO mode as BOARD
-    GPIO.setmode(GPIO.BOARD)
+
     baseSetup()
 
     try:
