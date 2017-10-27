@@ -53,20 +53,17 @@ if __name__ == "__main__":
     # set up GPIO mode as BOARD
     GPIO.setmode(GPIO.BOARD)
     baseSetup()
-
     try:
         LeftPwm.start(0)
         RightPwm.start(0)
 
         rightSwingTurn(45, 2)
-        goForward(30, 2)
+        sleep(2)
         leftSwingTurn(45, 2)
-        #goBackward(30, 2)
-
+        sleep(2)
         rightPointTurn(45, 2)
-        goForward(30, 2)
+        sleep(2)
         leftPointTurn(45, 2)
-        #goBackward(30, 2)
 
     except KeyboardInterrupt:
         stopCar()

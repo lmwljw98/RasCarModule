@@ -27,7 +27,8 @@ def getDistance():
             # distance type is centimeter.
             distance = pulse_duration * 17000
             distance = round(distance, 2)
-            print(distance)
+            # print(distance)
+            return distance
 
     except KeyboardInterrupt:
         GPIO.cleanup()

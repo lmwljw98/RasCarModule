@@ -68,7 +68,7 @@ def goForward(speed, running_time):
     # set the speed of the left motor to go forward
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(speed*1.3)
+    RightPwm.ChangeDutyCycle(speed * 1.3)
     # set the running time of the left motor to go forward
     sleep(running_time)
 
@@ -84,7 +84,7 @@ def goBackward(speed, running_time):
     # set the speed of the left motor to go forward
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(speed)
+    RightPwm.ChangeDutyCycle(speed * 1.3)
     # set the running time of the left motor to go forward
     sleep(running_time)
 
@@ -101,9 +101,8 @@ def goForwardAny(speed):
     # set the speed of the left motor to go forward
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(speed)
+    RightPwm.ChangeDutyCycle(speed * 1.3)
     # set the running time of the left motor to go forward
-    sleep(0.00001)
 
 
 def goBackwardAny(speed):
@@ -117,9 +116,8 @@ def goBackwardAny(speed):
     # set the speed of the left motor to go forward
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(speed)
+    RightPwm.ChangeDutyCycle(speed * 1.3)
     # set the running time of the left motor to go forward
-    sleep(0.0001)
 
 
 def stopCar():
@@ -136,9 +134,7 @@ def stopCar():
 # mission has been started as below
 if __name__ == "__main__":
     # set up GPIO mode as BOARD
-
     baseSetup()
-
     try:
         # setup and initialize the left motor and right motor
         LeftPwm.start(0)
