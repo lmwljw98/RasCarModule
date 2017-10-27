@@ -11,9 +11,6 @@ MotorRight_A = 15
 MotorRight_B = 13
 MotorRight_PWM = 37
 
-LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
-RightPwm = GPIO.PWM(MotorRight_PWM, 100)
-
 
 def baseSetup():
     # set up GPIO mode as BOARD
@@ -129,6 +126,10 @@ def stopCar():
 # mission has been started as below
 if __name__ == "__main__":
     baseSetup()
+
+    LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
+    RightPwm = GPIO.PWM(MotorRight_PWM, 100)
+
     try:
         # setup and initialize the left motor and right motor
         LeftPwm.start(0)
