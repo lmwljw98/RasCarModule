@@ -68,7 +68,7 @@ def goForward(speed, running_time):
     # set the speed of the left motor to go forward
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(speed)
+    RightPwm.ChangeDutyCycle(speed*1.3)
     # set the running time of the left motor to go forward
     sleep(running_time)
 
@@ -144,9 +144,9 @@ if __name__ == "__main__":
         LeftPwm.start(0)
         RightPwm.start(0)
         # command for forwarding with speed of 40 and time 3 seconds
-        goForward(40, 3)
+        goForward(60, 3)
         sleep(1)
-        goBackward(40, 3)
+        goBackward(60, 3)
         sleep(1)
         # command for stop
         stopCar()
