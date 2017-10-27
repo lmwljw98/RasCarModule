@@ -1,5 +1,3 @@
-# 기본적인 Setup 함수와 전진, 후진이 포함되어 있는 모듈
-
 import RPi.GPIO as GPIO
 from time import sleep
 
@@ -16,7 +14,6 @@ LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
 RightPwm = GPIO.PWM(MotorRight_PWM, 100)
 
 
-# 기본적인 세팅
 def baseSetup():
     # set up GPIO mode as BOARD
     GPIO.setmode(GPIO.BOARD)
@@ -33,7 +30,6 @@ def baseSetup():
     GPIO.setup(MotorRight_PWM, GPIO.OUT)
 
 
-# 왼쪽 모터의 전후진 상태 세팅
 def leftMotor(x):
     if x == 'forward':
         GPIO.output(MotorLeft_A, GPIO.HIGH)
@@ -43,7 +39,6 @@ def leftMotor(x):
         GPIO.output(MotorLeft_B, GPIO.HIGH)
 
 
-# 오른쪽 모터의 전후진 상태 세팅
 def rightMotor(x):
     if x == 'forward':
         GPIO.output(MotorRight_A, GPIO.LOW)
@@ -53,7 +48,6 @@ def rightMotor(x):
         GPIO.output(MotorRight_B, GPIO.LOW)
 
 
-# 지정한 속도와 지정한 시간만큼 앞으로 전진하는 함수
 def goForward(speed, running_time):
     # set the left motor to go forward
     leftMotor("forward")
@@ -71,7 +65,6 @@ def goForward(speed, running_time):
     sleep(running_time)
 
 
-# 지정한 속도와 지정한 시간만큼 뒤로 후진하는 함수
 def goBackward(speed, running_time):
     leftMotor("backward")
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
@@ -106,7 +99,6 @@ def goForwardAny(speed):
     sleep(0.00001)
 
 
-# 지정한 속도로 계속 후진할 수 있도록 하는 함수
 def goBackwardAny(speed):
     leftMotor("backward")
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
@@ -123,7 +115,6 @@ def goBackwardAny(speed):
     sleep(0.0001)
 
 
-# 구동체를 멈추는 함수
 def stopCar():
     # the speed of left motor will be set as LOW
     GPIO.output(MotorLeft_PWM, GPIO.LOW)
