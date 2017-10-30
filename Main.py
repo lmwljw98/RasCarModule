@@ -14,7 +14,7 @@ def A3_firstStep():
             else:
                 stopCar()
                 sleep(1)
-                rightSwingTurn(33, 1)
+                rightSwingTurn(43, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -33,7 +33,7 @@ def A3_secondStep():
             else:
                 stopCar()
                 sleep(1)
-                rightPointTurn(33, 1)
+                rightPointTurn(43, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -52,7 +52,7 @@ def A3_thirdStep():
             else:
                 stopCar()
                 sleep(1)
-                leftPointTurn(33, 1)
+                leftPointTurn(43, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -71,7 +71,7 @@ def A3_fourthStep():
             else:
                 stopCar()
                 sleep(1)
-                leftSwingTurn(33, 1)
+                leftSwingTurn(43, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
