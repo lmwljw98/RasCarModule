@@ -92,6 +92,8 @@ try:
     A3_firstStep(speed)
     A3_secondStep(speed)
     goForward(40, 1)
+    stopCar()
+    GPIO.cleanup()
     sleep(1)
     raw_input()
     A3_thirdStep()
