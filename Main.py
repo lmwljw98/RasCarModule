@@ -5,17 +5,16 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 
-def A3_firstStep(speed):
+def A3_firstStep():
     while True:
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(40)
+                goForwardAny(30)
             else:
                 stopCar()
                 sleep(1)
-                #rightSwingTurn(43, 1)
-                rightSwingTurn(speed, 1)
+                rightSwingTurn(35, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -25,17 +24,16 @@ def A3_firstStep(speed):
             GPIO.cleanup()
 
 
-def A3_secondStep(speed):
+def A3_secondStep():
     while True:
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(40)
+                goForwardAny(30)
             else:
                 stopCar()
                 sleep(1)
-                #rightPointTurn(43, 1)
-                rightPointTurn(speed, 1)
+                rightPointTurn(27, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -50,11 +48,11 @@ def A3_thirdStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(40)
+                goForwardAny(30)
             else:
                 stopCar()
                 sleep(1)
-                leftPointTurn(43, 1)
+                leftPointTurn(27, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -69,11 +67,11 @@ def A3_fourthStep():
         try:
             distance = getDistance()
             if distance > 20:
-                goForwardAny(40)
+                goForwardAny(30)
             else:
                 stopCar()
                 sleep(1)
-                leftSwingTurn(43, 1)
+                leftSwingTurn(35, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -88,17 +86,16 @@ try:
     baseSetup()
     LeftPwm.start(0)
     RightPwm.start(0)
-    speed = int(raw_input())
-    A3_firstStep(speed)
-    A3_secondStep(speed)
-    goForward(40, 1)
+    A3_firstStep()
+    A3_secondStep()
+    goForward(30, 1)
     stopCar()
     GPIO.cleanup()
     sleep(1)
     raw_input()
     A3_thirdStep()
     A3_fourthStep()
-    goForward(40, 1)
+    goForward(30, 1)
     stopCar()
     GPIO.cleanup()
 except KeyboardInterrupt:
