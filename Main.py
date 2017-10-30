@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 
-def A3_firstStep():
+def A3_firstStep(speed):
     while True:
         try:
             distance = getDistance()
@@ -14,7 +14,8 @@ def A3_firstStep():
             else:
                 stopCar()
                 sleep(1)
-                rightSwingTurn(43, 1)
+                #rightSwingTurn(43, 1)
+                rightSwingTurn(speed, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -24,7 +25,7 @@ def A3_firstStep():
             GPIO.cleanup()
 
 
-def A3_secondStep():
+def A3_secondStep(speed):
     while True:
         try:
             distance = getDistance()
@@ -33,7 +34,8 @@ def A3_secondStep():
             else:
                 stopCar()
                 sleep(1)
-                rightPointTurn(43, 1)
+                #rightPointTurn(43, 1)
+                rightPointTurn(speed, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -86,9 +88,9 @@ try:
     baseSetup()
     LeftPwm.start(0)
     RightPwm.start(0)
-
-    A3_firstStep()
-    A3_secondStep()
+    speed = int(raw_input())
+    A3_firstStep(speed)
+    A3_secondStep(speed)
     goForward(40, 1)
     sleep(1)
     raw_input()
