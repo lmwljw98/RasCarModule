@@ -14,7 +14,7 @@ def A3_firstStep():
             else:
                 stopCar()
                 sleep(1)
-                rightSwingTurn(25, 1)
+                rightSwingTurn(25, 2)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -33,7 +33,7 @@ def A3_secondStep():
             else:
                 stopCar()
                 sleep(1)
-                rightPointTurn(25, 1)
+                rightPointTurn(25, 2)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -52,7 +52,7 @@ def A3_thirdStep():
             else:
                 stopCar()
                 sleep(1)
-                leftPointTurn(25, 1)
+                leftPointTurn(25, 2)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -71,7 +71,7 @@ def A3_fourthStep():
             else:
                 stopCar()
                 sleep(1)
-                leftSwingTurn(25, 1)
+                leftSwingTurn(25, 2)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -90,10 +90,13 @@ try:
     A3_firstStep()
     A3_secondStep()
     goForward(40, 1)
+    sleep(1)
     raw_input()
     A3_thirdStep()
     A3_fourthStep()
     goForward(40, 1)
+    stopCar()
+    GPIO.cleanup()
 except KeyboardInterrupt:
     stopCar()
     GPIO.cleanup()
