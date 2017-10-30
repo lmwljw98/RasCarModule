@@ -33,7 +33,7 @@ def A3_secondStep():
             else:
                 stopCar()
                 sleep(1)
-                rightPointTurn(27, 1)
+                rightPointTurn(35, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
