@@ -92,10 +92,12 @@ try:
     stopCar()
     GPIO.cleanup()
     sleep(1)
+    '''
     raw_input()
     A3_thirdStep()
     A3_fourthStep()
     goForward(30, 1)
+    '''
     stopCar()
     GPIO.cleanup()
 except KeyboardInterrupt:
