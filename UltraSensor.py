@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
+
 import RPi.GPIO as GPIO
 import time
 
 
+# 초음파센서를 이용해 장애물과 구동체 사이의 거리를 재는 함수
 def getDistance():
     GPIO.setmode(GPIO.BOARD)
 

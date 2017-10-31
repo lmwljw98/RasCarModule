@@ -1,5 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import RPi.GPIO as GPIO
 from time import sleep
+
+# 기본적인 Setup과 구동체의 전/후진과 관련된 함수가 포함된 모듈
 
 # Global Variables
 MotorLeft_A = 12
@@ -13,6 +17,7 @@ MotorRight_PWM = 38
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
+# setup을 미리 해주지 않으면 Pwm을 선언할 수 없어서 한번 미리 setup 해준다
 GPIO.setup(MotorLeft_A, GPIO.OUT)
 GPIO.setup(MotorLeft_B, GPIO.OUT)
 GPIO.setup(MotorLeft_PWM, GPIO.OUT)
@@ -25,6 +30,7 @@ LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
 RightPwm = GPIO.PWM(MotorRight_PWM, 100)
 
 
+# 기본적인 setup 과정을 담은 함수
 def baseSetup():
     # set GPIO warnings as false
     GPIO.setwarnings(False)
@@ -38,6 +44,7 @@ def baseSetup():
     GPIO.setup(MotorRight_PWM, GPIO.OUT)
 
 
+# 왼쪽 모터의 전/후진을 인자로 받아 조정하는 함수
 def leftMotor(x):
     if x == 'forward':
         GPIO.output(MotorLeft_A, GPIO.LOW)
@@ -47,6 +54,7 @@ def leftMotor(x):
         GPIO.output(MotorLeft_B, GPIO.LOW)
 
 
+# 오른쪽 모터의 전/후진을 인자로 받아 조정하는 함수
 def rightMotor(x):
     if x == 'forward':
         GPIO.output(MotorRight_A, GPIO.HIGH)
@@ -56,6 +64,7 @@ def rightMotor(x):
         GPIO.output(MotorRight_B, GPIO.HIGH)
 
 
+# 구동체의 속도와 주행 시간을 인자로 받아 전진하는 함수
 def goForward(speed, running_time):
     # set the left motor to go forward
     leftMotor("forward")
@@ -73,6 +82,7 @@ def goForward(speed, running_time):
     sleep(running_time)
 
 
+# 구동체의 속도와 주행 시간을 인자로 받아 후진하는 함수
 def goBackward(speed, running_time):
     leftMotor("backward")
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
@@ -89,6 +99,7 @@ def goBackward(speed, running_time):
     sleep(running_time)
 
 
+# 멈추라는 명령이 있기 전까지 인자로 받은 속도로 계속 전진하는 함수
 def goForwardAny(speed):
     # set the left motor to go forward
     leftMotor("forward")
@@ -105,6 +116,7 @@ def goForwardAny(speed):
     # set the running time of the left motor to go forward
 
 
+# 멈추라는 명령이 있기 전까지 인자로 받은 속도로 계속 후진하는 함수
 def goBackwardAny(speed):
     leftMotor("backward")
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
@@ -120,6 +132,7 @@ def goBackwardAny(speed):
     # set the running time of the left motor to go forward
 
 
+# 구동체를 멈추는 함수
 def stopCar():
     # the speed of left motor will be set as LOW
     GPIO.output(MotorLeft_PWM, GPIO.LOW)
@@ -131,6 +144,7 @@ def stopCar():
     RightPwm.ChangeDutyCycle(0)
 
 
+# 테스트용
 # mission has been started as below
 if __name__ == "__main__":
     # set up GPIO mode as BOARD
