@@ -19,7 +19,7 @@ def A3_firstStep():
             else:
                 stopCar()
                 sleep(1)
-                rightSwingTurn(35, 1)
+                rightSwingTurn(30, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -38,7 +38,7 @@ def A3_secondStep():
             else:
                 stopCar()
                 sleep(1)
-                rightPointTurn(35, 1)
+                rightPointTurn(30, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -58,7 +58,7 @@ def A3_thirdStep():
             else:
                 stopCar()
                 sleep(1)
-                leftPointTurn(27, 1)
+                leftPointTurn(30, 0.23)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -77,7 +77,7 @@ def A3_fourthStep():
             else:
                 stopCar()
                 sleep(1)
-                leftSwingTurn(35, 1)
+                leftSwingTurn(50, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
@@ -94,23 +94,20 @@ try:
     LeftPwm.start(0)
     RightPwm.start(0)
 
-    # 1차 과제 수행
+# 1번째 과제
     A3_firstStep()
     A3_secondStep()
-    goForward(30, 1)
-    stopCar()
-    GPIO.cleanup()
-    sleep(1)
-    # 과제 수행 후 Stop
+    goForward(30, 1.5)
 
-    # 아무 값이나 input 받으면 2차 과제 수행
-    anything = raw_input()
+# 아무 값이나 input 받으면 2차 과제 수행
+    raw_input()
 
     A3_thirdStep()
     A3_fourthStep()
-    goForward(30, 1)
+    goForward(30, 1.5)
     stopCar()
     GPIO.cleanup()
+
 except KeyboardInterrupt:
     stopCar()
     GPIO.cleanup()

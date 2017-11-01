@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-# 기본적인 Setup과 구동체의 전/후진과 관련된 함수가 포함된 모듈
+# 기본적인 Setup과 구동체의 전/후진과 관련된 함수가 포함된
 
 # Global Variables
 MotorLeft_A = 12
