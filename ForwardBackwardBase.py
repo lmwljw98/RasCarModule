@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-# 기본적인 Setup과 구동체의 전/후진과 관련된 함수가 포함된
+# 기본적인 Setup과 구동체의 전/후진과 관련된 함수가 포함된 모듈
 
 # Global Variables
 MotorLeft_A = 12
@@ -17,7 +17,8 @@ MotorRight_PWM = 38
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-# setup을 미리 해주지 않으면 Pwm을 선언할 수 없어서 한번 미리 setup 해준다
+# setup을 미리 해주지 않으면 Pwm을 선언할 수 없어서 한번 미리 setup 해준다.
+# (전역변수로 선언하여 다른 모듈에서 사용하기 위함.)
 GPIO.setup(MotorLeft_A, GPIO.OUT)
 GPIO.setup(MotorLeft_B, GPIO.OUT)
 GPIO.setup(MotorLeft_PWM, GPIO.OUT)
@@ -113,6 +114,23 @@ def goForwardAny(speed):
     LeftPwm.ChangeDutyCycle(speed)
     # set the speed of the right motor to go forward
     RightPwm.ChangeDutyCycle(speed * 1.025)
+    # set the running time of the left motor to go forward
+
+
+# 멈추라는 명령이 있기 전까지 인자로 받은 속도로 계속 전진하는 함수
+def goForwardAny_LR(leftspeed, rightspeed):
+    # set the left motor to go forward
+    leftMotor("forward")
+    GPIO.output(MotorLeft_PWM, GPIO.HIGH)
+
+    # set the right motor to go forward
+    rightMotor("forward")
+    GPIO.output(MotorRight_PWM, GPIO.HIGH)
+
+    # set the speed of the left motor to go forward
+    LeftPwm.ChangeDutyCycle(leftspeed)
+    # set the speed of the right motor to go forward
+    RightPwm.ChangeDutyCycle(rightspeed * 1.025)
     # set the running time of the left motor to go forward
 
 
