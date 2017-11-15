@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import RPi.GPIO as GPIO
 import time
 
@@ -19,9 +21,8 @@ GPIO.setup(right1, GPIO.IN)
 
 
 def track():
-    led_list = [GPIO.input(left1), GPIO.input(left2), GPIO.input(center), GPIO.input(right2), GPIO.input(right1)]
 
-    return led_list
+    return GPIO.input(left1), GPIO.input(left2), GPIO.input(center), GPIO.input(right2), GPIO.input(right1)
 
 
 if __name__ == "__main__":

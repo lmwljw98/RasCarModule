@@ -31,20 +31,6 @@ LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
 RightPwm = GPIO.PWM(MotorRight_PWM, 100)
 
 
-# 기본적인 setup 과정을 담은 함수
-def baseSetup():
-    # set GPIO warnings as false
-    GPIO.setwarnings(False)
-
-    GPIO.setup(MotorLeft_A, GPIO.OUT)
-    GPIO.setup(MotorLeft_B, GPIO.OUT)
-    GPIO.setup(MotorLeft_PWM, GPIO.OUT)
-
-    GPIO.setup(MotorRight_A, GPIO.OUT)
-    GPIO.setup(MotorRight_B, GPIO.OUT)
-    GPIO.setup(MotorRight_PWM, GPIO.OUT)
-
-
 # 왼쪽 모터의 전/후진을 인자로 받아 조정하는 함수
 def leftMotor(x):
     if x == 'forward':
@@ -117,23 +103,6 @@ def goForwardAny(speed):
     # set the running time of the left motor to go forward
 
 
-# 멈추라는 명령이 있기 전까지 인자로 받은 속도로 계속 전진하는 함수
-def goForwardAny_LR(leftspeed, rightspeed):
-    # set the left motor to go forward
-    leftMotor("forward")
-    GPIO.output(MotorLeft_PWM, GPIO.HIGH)
-
-    # set the right motor to go forward
-    rightMotor("forward")
-    GPIO.output(MotorRight_PWM, GPIO.HIGH)
-
-    # set the speed of the left motor to go forward
-    LeftPwm.ChangeDutyCycle(leftspeed)
-    # set the speed of the right motor to go forward
-    RightPwm.ChangeDutyCycle(rightspeed * 1.025)
-    # set the running time of the left motor to go forward
-
-
 # 멈추라는 명령이 있기 전까지 인자로 받은 속도로 계속 후진하는 함수
 def goBackwardAny(speed):
     leftMotor("backward")
@@ -166,7 +135,7 @@ def stopCar():
 # mission has been started as below
 if __name__ == "__main__":
     # set up GPIO mode as BOARD
-    baseSetup()
+    # baseSetup()
     try:
         # setup and initialize the left motor and right motor
         LeftPwm.start(0)
