@@ -8,11 +8,13 @@ from time import sleep
 # Global Variables
 MotorLeft_A = 12
 MotorLeft_B = 11
-MotorLeft_PWM = 36
+# MotorLeft_PWM = 36
+MotorLeft_PWM = 35
 
 MotorRight_A = 15
 MotorRight_B = 13
-MotorRight_PWM = 38
+# MotorRight_PWM = 38
+MotorRight_PWM = 37
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
