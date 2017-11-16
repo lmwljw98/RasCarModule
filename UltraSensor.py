@@ -18,7 +18,7 @@ def getDistance():
     try:
         while True:
             GPIO.output(trig, False)
-            time.sleep(0.5)
+            time.sleep(0.05)
             GPIO.output(trig, True)
             time.sleep(0.00001)
             GPIO.output(trig, False)
@@ -30,7 +30,7 @@ def getDistance():
             # distance type is centimeter.
             distance = pulse_duration * 17000
             distance = round(distance, 2)
-            print(distance)
+            # print distance
             return distance
 
     except KeyboardInterrupt:
@@ -38,4 +38,5 @@ def getDistance():
 
 
 if __name__ == "__main__":
-    getDistance()
+    while True:
+        getDistance()

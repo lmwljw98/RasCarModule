@@ -4,23 +4,25 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 # 기본적인 Setup과 구동체의 전/후진과 관련된 함수가 포함된 모듈
-
 # Global Variables
+
+##############################
+# 본인 자동차 설정에 맞춰서 작성
+
 MotorLeft_A = 12
 MotorLeft_B = 11
-# MotorLeft_PWM = 36
-MotorLeft_PWM = 35
+MotorLeft_PWM = 36
+# MotorLeft_PWM = 35
 
 MotorRight_A = 15
 MotorRight_B = 13
-# MotorRight_PWM = 38
-MotorRight_PWM = 37
+MotorRight_PWM = 38
+# MotorRight_PWM = 37
+##############################
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-# setup을 미리 해주지 않으면 Pwm을 선언할 수 없어서 한번 미리 setup 해준다.
-# (전역변수로 선언하여 다른 모듈에서 사용하기 위함.)
 GPIO.setup(MotorLeft_A, GPIO.OUT)
 GPIO.setup(MotorLeft_B, GPIO.OUT)
 GPIO.setup(MotorLeft_PWM, GPIO.OUT)
@@ -29,6 +31,7 @@ GPIO.setup(MotorRight_A, GPIO.OUT)
 GPIO.setup(MotorRight_B, GPIO.OUT)
 GPIO.setup(MotorRight_PWM, GPIO.OUT)
 
+# 전역변수로 선언하여 다른 모듈에서 사용
 LeftPwm = GPIO.PWM(MotorLeft_PWM, 100)
 RightPwm = GPIO.PWM(MotorRight_PWM, 100)
 

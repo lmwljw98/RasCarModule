@@ -7,11 +7,14 @@ GPIO.setwarnings(False)
 
 GPIO.setmode(GPIO.BOARD)
 
-left1 = 16
-left2 = 18
-center = 22
+##############################
+# 본인 자동차 설정에 맞춰서 작성
+left1 = 18
+left2 = 26
+center = 24
 right2 = 40
 right1 = 32
+##############################
 
 GPIO.setup(left1, GPIO.IN)
 GPIO.setup(left2, GPIO.IN)
