@@ -51,19 +51,19 @@ def mazeSearch(led_list):
         if (led_list[0] and led_list[1]) and not (led_list[2] and led_list[3] and led_list[4]):
             make_speed_zero()
             goForward(30, 0.4)
-            while led_list[4]:
+            while led_list[3]:
                 rightPointTurn(30, 0.05)
             return  # 오른쪽만 있는 교차로
         elif (led_list[3] and led_list[4]) and not (led_list[0] and led_list[1] and led_list[2]):
             make_speed_zero()
             goForward(30, 0.4)
-            while led_list[0]:
+            while led_list[1]:
                 leftPointTurn(30, 0.05)
             return  # 왼쪽만 있는 교차로
         elif not (led_list[0] and led_list[1] and led_list[2] and led_list[3] and led_list[4]):
             make_speed_zero()
             goForward(30, 0.4)
-            while led_list[4]:
+            while led_list[3]:
                 rightPointTurn(30, 0.05)
             return  # 양갈래길 교차로
     except KeyboardInterrupt:
