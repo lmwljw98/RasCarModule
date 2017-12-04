@@ -17,12 +17,16 @@ def avoid():
         sleep(1)
         ##########################################
         # 상황에 따라서 다르기 때문에 각자 조절해야함
-        rightPointTurn(35, 1)
+        rightPointTurn(30, 1)
+        sleep(1)
+        goForward(30, 0.5)
+        sleep(1)
+        leftPointTurn(30, 0.15)
         sleep(1)
         goForward(30, 1.5)
-        leftPointTurn(35, 2)
+        sleep(1)
+        #leftPointTurn(30, 0.23)
         ##########################################
-        sleep(1.5)
         goForwardAny(speed)
     except KeyboardInterrupt:
         stopCar()
@@ -37,20 +41,24 @@ def lineTrace():
 
         if led_list[0] and not (led_list[4]):
             # print 'a'
-            LeftPwm.ChangeDutyCycle(speed + 75)
-            RightPwm.ChangeDutyCycle(speed)
+            if led_list[0] and not (led_list[4]):
+                LeftPwm.ChangeDutyCycle(speed + 75)
+                RightPwm.ChangeDutyCycle(speed)
         if led_list[1] and not (led_list[3]):
-            # print 'b'
-            LeftPwm.ChangeDutyCycle(speed + 65)
-            RightPwm.ChangeDutyCycle(speed)
+            if led_list[1] and not (led_list[3]):
+                # print 'b'
+                LeftPwm.ChangeDutyCycle(speed + 65)
+                RightPwm.ChangeDutyCycle(speed)
         if led_list[3] and not (led_list[1]):
-            # print 'c'
-            LeftPwm.ChangeDutyCycle(speed)
-            RightPwm.ChangeDutyCycle(speed + 40)
+            if led_list[3] and not (led_list[1]):
+                # print 'c'
+                LeftPwm.ChangeDutyCycle(speed)
+                RightPwm.ChangeDutyCycle(speed + 40)
         if led_list[4] and not (led_list[0]):
-            # print 'd'
-            LeftPwm.ChangeDutyCycle(speed)
-            RightPwm.ChangeDutyCycle(speed + 60)
+            if led_list[4] and not (led_list[0]):
+                # print 'd'
+                LeftPwm.ChangeDutyCycle(speed)
+                RightPwm.ChangeDutyCycle(speed + 60)
 
     except KeyboardInterrupt:
         stopCar()
@@ -62,7 +70,7 @@ def start():
         goForwardAny(speed)
         while True:
             a = getDistance()
-            if a > 22:
+            if a > 5.9:
                 lineTrace()
             else:
                 # print 'avoid'
