@@ -10,7 +10,7 @@ speed = 15
 
 
 def lineTrace():
-    goForwardAny(speed)
+    goForwardAny(40)
     while True:
         try:
             led_list = track()  # Black = 0, White = 1
@@ -38,52 +38,69 @@ def lineTrace():
 def mazeSearch(led_list):
     try:
         if led_list[0] and led_list[1] and led_list[2] and led_list[3] and led_list[4]:
+            print("u")
+            print(led_list)
             stopCar()
-            goForward(30, 0.4)
-            doing_U_turn()
-            return
-
-        if (led_list[0] and led_list[1]) and not (led_list[2] and led_list[3] and led_list[4]):
-            stopCar()
-            goForward(30, 0.4)
+            sleep(1)
+            goForward(37, 0.5)
+            rightPointTurn(28, 0.5)
             while True:
-                led_list = track()
-                if led_list[3]:
-                    rightPointTurn(30, 0.5)
+                inner_led_list = track()
+                print(inner_led_list)
+                if not inner_led_list[2]:
+                    goForwardAny(40)
+                    return 0
                 else:
-                    return  # 오른쪽만 있는 교차로
-        elif (led_list[3] and led_list[4]) and not (led_list[0] and led_list[1] and led_list[2]):
+                    leftPointTurn(40, 0.25)
+
+        elif led_list[0] and led_list[1] and not led_list[3] and not led_list[4]:
+            print("right")
+            print(led_list)
             stopCar()
-            goForward(30, 0.4)
+            sleep(1)
+            goForward(37, 0.5)
+            rightPointTurn(28, 0.5)
             while True:
-                led_list = track()
-                if led_list[1]:
-                    leftPointTurn(30, 0.5)
+                inner_led_list = track()
+                print(inner_led_list)
+                if not inner_led_list[2]:
+                    goForwardAny(40)
+                    return 1
                 else:
-                    return  # 왼쪽만 있는 교차로
-        elif not (led_list[0] and led_list[1] and led_list[2] and led_list[3] and led_list[4]):
+                    rightPointTurn(40, 0.25)
+
+        elif not led_list[0] and not led_list[1] and led_list[3] and led_list[4]:
+            print("left")
+            print(led_list)
             stopCar()
-            goForward(30, 0.4)
+            sleep(1)
+            goForward(37, 0.5)
+            leftPointTurn(28, 0.5)
             while True:
-                led_list = track()
-                if led_list[3]:
-                    rightPointTurn(30, 0.5)
+                inner_led_list = track()
+                print(inner_led_list)
+                if not inner_led_list[2]:
+                    goForwardAny(40)
+                    return 2
                 else:
-                    return  # 양갈래길 교차로
-    except KeyboardInterrupt:
-        stopCar()
-        GPIO.cleanup()
+                    leftPointTurn(40, 0.25)
 
+        elif not led_list[0] and not led_list[1] and not led_list[2] and not led_list[3] and not led_list[4]:
+            print("all")
+            print(led_list)
+            stopCar()
+            sleep(1)
+            goForward(37, 0.5)
+            rightPointTurn(28, 0.5)
+            while True:
+                inner_led_list = track()
+                print(inner_led_list)
+                if not inner_led_list[2]:
+                    goForwardAny(40)
+                    return 3
+                else:
+                    rightPointTurn(40, 0.25)
 
-def doing_U_turn():
-    try:
-        while True:
-            led_list = track()
-
-            if led_list[2]:
-                rightPointTurn(30, 0.5)
-            else:
-                return
     except KeyboardInterrupt:
         stopCar()
         GPIO.cleanup()
