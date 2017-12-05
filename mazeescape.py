@@ -48,31 +48,28 @@ def mazeSearch(led_list):
             goForward(30, 0.4)
             while True:
                 led_list = track()
-                while led_list[3]:
+                if led_list[3]:
                     rightPointTurn(30, 0.5)
                 else:
-                    return
-            return  # 오른쪽만 있는 교차로
+                    return  # 오른쪽만 있는 교차로
         elif (led_list[3] and led_list[4]) and not (led_list[0] and led_list[1] and led_list[2]):
             stopCar()
             goForward(30, 0.4)
             while True:
                 led_list = track()
-                while led_list[1]:
+                if led_list[1]:
                     leftPointTurn(30, 0.5)
                 else:
-                    return
-            return  # 왼쪽만 있는 교차로
+                    return  # 왼쪽만 있는 교차로
         elif not (led_list[0] and led_list[1] and led_list[2] and led_list[3] and led_list[4]):
             stopCar()
             goForward(30, 0.4)
             while True:
                 led_list = track()
-                while led_list[3]:
+                if led_list[3]:
                     rightPointTurn(30, 0.5)
                 else:
-                    return
-            return  # 양갈래길 교차로
+                    return  # 양갈래길 교차로
     except KeyboardInterrupt:
         stopCar()
         GPIO.cleanup()
