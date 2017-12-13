@@ -1,3 +1,11 @@
+######################################################################
+# Date : 2017/11 ~
+# Member's Name : 이정우, 이정훈, 장민혁
+# Member's ID : 20171676, 20171678, 20171691
+# Module name: Tracking.py
+# Purpose: LED 탐색 값을 리턴해주는 함수가 있는 모듈
+######################################################################
+
 # -*- coding: utf-8 -*-
 
 import RPi.GPIO as GPIO
@@ -24,7 +32,12 @@ GPIO.setup(right1, GPIO.IN)
 
 
 def track():
+    """
+    LED 값을 리턴하는 함수
+    가장 왼쪽을 0번 인덱스로 하여 Tuple 자료형으로 리턴한다.
 
+    :return:
+    """
     return GPIO.input(left1), GPIO.input(left2), GPIO.input(center), GPIO.input(right2), GPIO.input(right1)
 
 

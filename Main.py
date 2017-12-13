@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from ForwardBackwardBase import *
-from TurningCar import rightSwingTurn, leftSwingTurn, rightPointTurn, leftPointTurn
+from TurningCar import rightSwingTurn, leftPointTurn, rightPointTurn, leftPointTurn
 from UltraSensor import getDistance
 import RPi.GPIO as GPIO
 from time import sleep
@@ -77,7 +77,7 @@ def A3_fourthStep():
             else:
                 stopCar()
                 sleep(1)
-                leftSwingTurn(50, 1)
+                leftPointTurn(50, 1)
                 break
 
         # when the Ctrl+C key has been pressed,
